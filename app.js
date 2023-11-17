@@ -186,20 +186,27 @@ function renderIngredientsBoard(){
   }
 }
 
-//Judgement 1
-//In the p element having price-details as the class, display the calculated
-//price based on ingredients
-function renderPrice() {
-  // Calculate the total price based on the selected ingredients
-  let totalPrice = wholeWheatBun;
-  
-  // Add the price of each selected ingredient to the total price
-  for (let ingredient in state) {
-    if (state[ingredient]) {
-      totalPrice += ingredients[ingredient];
-    }
+
+function renderPrice(){
+  let total=wholeWheatBun;
+  if(state.Patty){
+    total+=ingredients.Patty
   }
 
-  // Display the calculated price in the element with the class "price-details"
-  document.querySelector(".price-details").textContent = `INR ${totalPrice}`;
+  if(state.Cheese){
+    total+=ingredients.Cheese
+  }
+
+  if(state.Tomatoes){
+    total+=ingredients.Tomatoes
+  }
+  
+  if(state.Onions){
+    total+=ingredients.Onions
+  }
+
+  if(state.Lettuce){
+    total+=ingredients.Lettuce
+  }
+  document.querySelector(".price-details").innerHTML="INR "+total;
 }
